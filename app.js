@@ -5,6 +5,7 @@ document.getElementById('submit').addEventListener('click', function(){
     fetch(url)
     .then(res => res.json())
     .then(data => displaySong(data.data))
+    .catch(error => displayError('Something Went Wrong! Please try again later!'))
 })
 
 const displaySong = songs => {
@@ -41,4 +42,8 @@ const getLyrics = (name, title) =>{
 const displayLyrics = (lyrics) =>{
     const getLyrics = document.getElementById('lyrics');
     getLyrics.innerText = lyrics;
+}
+const displayError = (error) =>{
+    const errorTag = document.getElementById('error');
+    errorTag.innerText = error;
 }
